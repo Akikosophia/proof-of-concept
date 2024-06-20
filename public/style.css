@@ -91,6 +91,10 @@ h2 {
   margin-right: 7.5em;
 }
 
+h3 {
+  margin-bottom: -5em;
+}
+
 a:link {
   color: white;
 }
@@ -214,9 +218,9 @@ button.buttonChat {
 }
 
 .homeButton {
-  margin-top: 4em;
+  top: 8%;
   position: absolute;
-  left: 5%;
+  left: 8%;
   padding: 0.3em 0.6em;
   border: 1px solid transparent;
   border-radius: 0.5rem;
@@ -225,6 +229,12 @@ button.buttonChat {
   background-color: var(--darkcolor-base);
   color: white;
   cursor: pointer;
+  margin-top: 2em;
+}
+
+a .home {
+  margin-top: 5em;
+  margin-left: 3em;
 }
 
 i.zoek-balk {
@@ -306,7 +316,7 @@ article.audit {
 }
 
 p.prompt {
-  margin-top: 10em;
+  margin-top: 8em;
   margin-left: 0.1em;
   margin-right: 0.1em;
   /* text-align: left; */
@@ -325,11 +335,14 @@ p.prompt {
 }
 
 .submit-input {
-  background-color: var(--lightcolor-card);
+  background-color: var(--darkcolor-base);
   width: 20em;
   margin-top: 1em;
   margin-bottom: 1em;
   margin-left: 1em;
+  color: var(--lightolor-nav-text);
+  border-radius: 20px;
+  padding: .3em .6em;
 }
 
 button.cancelButton {
@@ -337,6 +350,13 @@ button.cancelButton {
   width: 20em;
   margin-bottom: 5em;
   margin-left: 1em;
+  border: none;
+  border-radius: 20px;
+  padding: .3em .6em;
+}
+
+.submit-input:hover {
+  background-color: var(--darkcolor-accent)
 }
 
 form {

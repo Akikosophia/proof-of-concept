@@ -25,18 +25,25 @@ const apiPrompts = apiUrl + "prompts";
 
 const ApiSub = apiUrl + "subcategories";
 
-const ApiPromptsId = apiUrl + "prompts?filter[id][_eq]=1";
-const ApiPromptsIdTwo = apiUrl + "prompts?filter[id][_eq]=2";
-
-
 // Home pagina
 // laadt in wanneer dat nodig is
 app.get("/", async function (request, response) {
   try {
+
+
     // Ophalen van categorieën
+// Hier verstuur ik een verzoek naar de api om de categorieën op te halen dit doe ik met de fetchJson 
+// Server geeft de data terug in JSON gegevens
+// De await wacht tot FetchJson functie is gelukt
     const categories = await fetchJson(apiUrl + "categories");
 
     // Mappen van categorieën naar een formaat dat de front-end kan verwerken
+//  Er word een nieuwe map toegevoegd, 
+// De map maakt een nieuwere versie van de opgehaalde categories
+// Hij wacht eerst tot alle promises zijn uitgevoerd en als dit gelukt is. 
+// Ik haal de subcategorieën op
+// Dan maak ik een constante variabele voor de subcategories
+
     const categoriesWithSubcategories = await Promise.all(
       categories.data.map(async (category) => {
         const subcategories = await Promise.all(
@@ -44,6 +51,14 @@ app.get("/", async function (request, response) {
             const subcategory = await fetchJson(
               `${apiUrl}subcategories/${subcategoryId}`
             );
+
+// Voor elk categorie worden de subcategorieën opgehaald.
+// Voor elke subcategorie-ID in category.subcategories sturen we een verzoek om de details van de subcategorie op te halen
+// Met FetchJson verzoek haal je de data van de subcategorie op
+// Met return geef je de gegevens van het object terug 
+// En geef je dit een nieuw object mee
+// Dus dat zijn category.id, category.name, subcategories.
+
             // console.log("subcategory" + subcategory.data.name);
             console.log("subcategory object" + subcategory);
             return subcategory;
@@ -57,8 +72,17 @@ app.get("/", async function (request, response) {
         };
       })
     );
+
+
     console.log(categoriesWithSubcategories);
+    
     // Ophalen van prompts
+
+// Verstuur een verzoek om de prompts op te halen van de api.
+// Resonse en render je de homepage
+// En geef je de gegevens mee
+
+
     const promptsResponse = await fetchJson(apiUrl + "prompts");
 
     // Renderen van de home pagina met de opgehaalde gegevens
@@ -218,19 +242,21 @@ app.get("/", async function (request, response) {
 // });
 
 
-// app.post("/audit", function (request, response){
-
-
-// }
-
+// Ik maak een get route voor audit/:id.
+// Waarbij de :id een dynamische parameter is.
+// Async function gebruik ik omdat ik ook de await ga gebruiken
+// Als de request.params.id die gelijk is aan de categorie haalt hij op die op
 
 app.get("/audit/:id", async (request, response) => {
   const categoryId = request.params.id;
   console.log("categoryId: " + categoryId);
   const fetchJson = (url) => fetch(url).then(response => response.json());
 
+//   FetchJson functie neemt een url als parameter
+// Fetch (url) doet een http get verzoek naar de url en geeft een Promise terug die een object bevat
 
   try {
+
     // Fetch prompts and variables concurrently
     const [promptsData, variablesData] = await Promise.all([
       fetchJson(apiUrl + "prompts"),
@@ -239,6 +265,11 @@ app.get("/audit/:id", async (request, response) => {
 
 
     // Filter prompts by category
+// Ik maak een constante variabele voor de prompts data 
+// Ik filter item subcategorie in de prompts dat gelijk moet zijn aan de category id
+// Als er tijdens het filteren geen categorie gelijk zijn 
+// Als prompts length nul leeg is dan word er een leeg object mee gegeven
+// Dit zorgt dat juist gerenderd word ook als er niks te zien is
     const prompts = promptsData.data.filter(item => item.subcategorie == categoryId);
     if (prompts.length === 0) {
       return response.render("audit", { prompts: [], variables: [] });
@@ -252,7 +283,9 @@ app.get("/audit/:id", async (request, response) => {
     }, {});
 
 
-    // Replace placeholders in prompts with input fields
+    // Replace placeholders in prompts with input fields    
+    // Hier de vervang ik de placeholders in de prompts met invoervelden met switch en replace
+
     const formattedPrompts = prompts.map(prompt => {
       let formattedText = prompt.text;
       prompt.variables.forEach(variableId => {
@@ -367,7 +400,12 @@ app.get("/consulting/:id", async (request, response) => {
     ]);
 
 
-    // Filter prompts by category
+// Filter prompts by category
+// Ik maak een constante variabele voor de prompts data 
+// Ik filter item subcategorie in de prompts dat gelijk moet zijn aan de category id
+// Als er tijdens het filteren geen categorie gelijk zijn 
+// Als prompts length nul leeg is dan word er een leeg object mee gegeven
+// Dit zorgt dat juist gerenderd word ook als er niks te zien is
     const prompts = promptsData.data.filter(item => item.subcategorie == categoryId);
     if (prompts.length === 0) {
       return response.render("consulting", { prompts: [], variables: [] });

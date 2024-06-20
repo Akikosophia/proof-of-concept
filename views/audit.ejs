@@ -26,15 +26,17 @@
     <main>
 
         <article class="audit">
+
+            <a href="/" class="home">home</a>
     
             <!-- <a href="/" class="homeButton">home</a> -->
     
-            <h1 class="titel"> Prompt</h1>
+            <h2 class="titel"> Prompt</h1>
                         <form>
                             <ul>
                                 <% prompts.forEach(prompt => { %>
                                     <li>
-                                        <!-- <h2 class="promptTitel"><%- prompt.label %></h2> -->
+                                        <h3 class="promptTitel"><%- prompt.label %></h3>
                                         <p class="prompt"><%- prompt.text %></p>
                                     </li>
                                 <% }); %>
