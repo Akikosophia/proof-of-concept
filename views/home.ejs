@@ -2,12 +2,12 @@
 
     <main>
         <article>
-            <h1 class="headstart">Headstart</h1>
+            <h1 class="headstart">Headstart | Deloitte</h1>
             <!--  <img src="/assets/headstart-logo.png" class="logoHeadstart" alt="logoHeadstart" /> -->
             <h2 class="prompt"> Prompts</h2>
   
             <a href="#menu_open" class="">
-                <svg class="open" viewBox="0 0 100 80" width="30" height="30">
+                <svg class="open" viewBox="0 0 100 80" width="31" height="31">
                     <rect width="100" height="15" rx="8"></rect>
                     <rect y="30" width="100" height="15" rx="8"></rect>
                     <rect y="60" width="100" height="15" rx="8"></rect>
@@ -157,6 +157,7 @@
                 <li class="breadcrumbItem"><a href="/consulting"></a></li>
             </ul> -->
 
+        
         <article class="categorie">
 
            <% categories.forEach(categorie=> { %>
@@ -168,8 +169,8 @@
                         <ul>
                             <% categorie.subcategories.forEach(subcategorie => { %>
                                 <li>
-                                    <!-- <a href="./<%= categorie.name %>/<%= subcategorie.data.subcategory_id %>" class="subcategorieLink"> -->
-                                        <a href="./<%= categorie.name %>/" class="subcategorieLink">
+                                    <a href="./<%= categorie.name %>/<%= subcategorie.data.id %>" class="subcategorieLink">
+
                                         <%= subcategorie.data.name %>
                                     </a>
                                 </li>

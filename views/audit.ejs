@@ -1,37 +1,50 @@
 <%- include('./partials/head') %>
 
-<main>
+<!-- <main>
 
     <article class="audit">
 
-        <a href="/" class="homeButton">home</a>
+        <a href="/financialReview" class="homeButton">test</a>
 
         <h1 class="titel"> Prompt</h1>
 
-   
-                    <form>
-                    <% prompts.forEach(prompt=> { %>
-                        <p class="prompt">
-                            <%= prompt.text %>
-                        </p>
-                    <% }) %>
 
-                    <label for="fileInput">Upload Financial Statement File:</label>
-                    <input type="file" id="fileInput" name="fileInput" />
+        <form>
+            <ul>
+                <% prompts.forEach(prompt => { %>
+                    <li>
+                        <p class="prompt"><%- prompt.text %></p>
+                    </li>
+                <% }); %>
+            </ul>
+        </form>
+
+
+        <input type="submit" class="submit-input" value="Start the prompt" />
+    <button class="cancelButton">cancel</button> -->
+
+    <main>
+
+        <article class="audit">
     
-                    <label for="reviewDateInput">Review Date:</label>
-                    <input type="date" id="reviewDateInput" name="reviewDateInput" />
+            <!-- <a href="/" class="homeButton">home</a> -->
     
-                    <label for="leadAuditorInput">Lead Auditor:</label>
-                    <input type="text" id="leadAuditorInput" name="leadAuditorInput"
-                        placeholder="Enter Lead Auditor's Name" />
-
-                    </form>
-
-                    <input type="submit" class="submit-input" value="Start the prompt" />
-                <button class="cancelButton">cancel</button>
-
-    </article>
-</main>
+            <h1 class="titel"> Prompt</h1>
+                        <form>
+                            <ul>
+                                <% prompts.forEach(prompt => { %>
+                                    <li>
+                                        <!-- <h2 class="promptTitel"><%- prompt.label %></h2> -->
+                                        <p class="prompt"><%- prompt.text %></p>
+                                    </li>
+                                <% }); %>
+                            </ul>
+                        </form>
+    
+                        <input type="submit" class="submit-input" value="Start the prompt" />
+                    <button class="cancelButton">cancel</button>
+    
+        </article>
+    </main>
 
 <%- include('./partials/foot') %>

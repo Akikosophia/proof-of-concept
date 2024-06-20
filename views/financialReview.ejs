@@ -1,0 +1,28 @@
+<%- include('./partials/head') %>
+
+
+                    <form class="form" action="/financialReview" method="POST">
+                        <% prompts.forEach(prompt=> { %>
+                            <p class="prompt">
+                                            <%- prompt.text.replace("{{ Financial Statement File }}", '<input class="form__input" type="text" name="financial_statement_file" placeholder="Financial Statement File">')
+                                                        .replace("{{ Review Date }}", '<input class="form__input" type="date" name="review_date" placeholder="Review Date">')
+                                                        .replace("{{ Lead Auditor }}", '<input class="form__input" type="text" name="lead_auditor" placeholder="Lead Auditor">') %>
+                                        </p>
+                                        
+                                        <!-- Hier zitten 2 hidden input velden deze input gebruik ik om de data op te slaan en versturen dit is niet zichtbaar voor de gebruiker in de browser -->
+                                        <!-- als de button gesubmit wordt dan wordt de zichtbare data van de zichtbare input + onzichtbare data van hidden input verzonden naar de server -->
+                                        <!-- prompt.name komt vanuit de JSON die is gefilterd op id:1 de name: finalcialreview -->
+                                        <!-- prompt.text komt vanuit de JSON die is gefilterd op id:1 de text: Json text met de curly brackets -->
+                                        <input type="hidden" name="original_text" value="<%- prompt.text %>">
+                                        <input type="hidden" value="<%= prompt.name %>">
+                                        <input class="button__link--Secondary" type="submit" value="Start conversation using this prompt">
+                    
+                    
+                                        <a class="form__cancel" href="">Cancel</a>
+                    
+                    
+                                    <% }) %>
+                                    <li> <%= promptMessages  %></li>
+                                    
+
+                                    <%- include('./partials/foot') %>

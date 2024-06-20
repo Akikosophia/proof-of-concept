@@ -112,19 +112,9 @@ svg.open {
   right: 0;
   top: 0;
   margin-right: 10px;
-  margin-top: 12px;
+  margin-top: 14px;
 }
 
-nav.sidebar {
-  width: 100%;
-  height: 100%;
-  background-color: var(--darkcolor-base);
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 1em;
-  list-style: none;
-}
 
 #sidebar {
   width: 40%;
@@ -142,8 +132,9 @@ nav.sidebar {
 
 nav {
   width: 100%;
-  height: 100%;
-  background-color: var(--darkcolor-base);
+  height: 200%;
+  background-color:var(--lightolor-nav-text);
+  opacity: 1;
   position: absolute;
   top: 0;
   left: 0;
@@ -384,6 +375,11 @@ form {
 }
 
 @media (min-width: 768px) {
+
+  svg.open {
+    display: none;
+  }
+
   #sidebar {
     display: block;
   }
@@ -418,6 +414,23 @@ form {
 }
 
 @media (min-width: 1024px) {
+
+  img.logoHeadstart {
+    margin-left: 15px;
+  }
+
+  h1.headstart {
+    position: absolute;
+    left: 6%;
+    top: 0;
+    margin-top: 13px;
+    z-index: 2;
+  }
+
+  #sidebar {
+    width: 32% ;
+  }
+
   h2.prompt {
     margin-bottom: 1em;
     position: absolute;
@@ -430,15 +443,59 @@ form {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-end;
-    margin-left: 5em;
+    margin-right: 1em;
     margin-top: 10em;
-
   }
 
   article.categories {
     width: 300px;
     margin: 1em;
   }
+}
 
+@media (min-width: 1440px) {
 
+  img.logoHeadstart {
+    margin-left: 30px;
+  }
+
+  h1.headstart {
+    position: absolute;
+    left: 8%;
+    top: 0;
+    margin-top: 13px;
+    z-index: 2;
+  }
+
+  h1.headstart {
+    position: absolute;
+    left: 5%;
+    top: 0;
+    margin-top: 13px;
+    z-index: 2;
+  }
+
+  #sidebar {
+    width: 23%;
+    margin-right: 1em;
+  }
+
+  h2.prompt {
+    margin-bottom: 1em;
+    position: absolute;
+    left: 5%;
+    top: 0;
+  }
+
+  article.categorie {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10em;
+  }
+
+  article.categories {
+    width: 300px;
+    margin: 1em;
+
+  }
 }

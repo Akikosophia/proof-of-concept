@@ -77,86 +77,86 @@ app.get("/", async function (request, response) {
 });
 
 
-app.get("/audit", async function (request, response) {
-  try {
-    const items = await fetchJson(apiUrl + "subcategories");
-    const filteredData = items.data.filter((item) => {
-      return item.category == 1;
-    });
-    const promptsResponse = await fetchJson(apiUrl + "prompts");
+// app.get("/audit", async function (request, response) {
+//   try {
+//     const items = await fetchJson(apiUrl + "subcategories");
+//     const filteredData = items.data.filter((item) => {
+//       return item.category == 1;
+//     });
+//     const promptsResponse = await fetchJson(apiUrl + "prompts");
 
-    const filteredPrompts = promptsResponse.data.filter((item) => {
-      return item.subcategorie == 2;
-    })
+//     const filteredPrompts = promptsResponse.data.filter((item) => {
+//       return item.subcategorie == 2;
+//     })
 
-    response.render("audit", {
-      subcategories: filteredData,
-      prompts: filteredPrompts,
-    });
-  } catch (error) {
-    console.error("Er was een probleem met het ophalen van gegevens:", error);
-    response
-      .status(500)
-      .send("Er is een fout opgetreden bij het ophalen van gegevens.");
-  }
-});
+//     response.render("audit", {
+//       subcategories: filteredData,
+//       prompts: filteredPrompts,
+//     });
+//   } catch (error) {
+//     console.error("Er was een probleem met het ophalen van gegevens:", error);
+//     response
+//       .status(500)
+//       .send("Er is een fout opgetreden bij het ophalen van gegevens.");
+//   }
+// });
 
-app.get("/innovation", async function (request, response) {
-  try {
-    const items = await fetchJson(apiUrl + "subcategories");
-    var subCategoryId = [];
-    const filteredData = items.data.filter((item) => {
-      console.log(item);
-      if(item.category == 2) {
-        subCategoryId.push(item.subcategory_id);
-      }
+// app.get("/innovation", async function (request, response) {
+//   try {
+//     const items = await fetchJson(apiUrl + "subcategories");
+//     var subCategoryId = [];
+//     const filteredData = items.data.filter((item) => {
+//       console.log(item);
+//       if(item.category == 2) {
+//         subCategoryId.push(item.subcategory_id);
+//       }
 
-      return item.category == 2;
-    });
-    const promptsResponse = await fetchJson(apiUrl + "prompts");
-    const filteredPrompts = promptsResponse.data.filter((item) => {
-      return subCategoryId.includes(item.subcategory_id);
-    })
+//       return item.category == 2;
+//     });
+//     const promptsResponse = await fetchJson(apiUrl + "prompts");
+//     const filteredPrompts = promptsResponse.data.filter((item) => {
+//       return subCategoryId.includes(item.subcategory_id);
+//     })
 
-    console.log(filteredPrompts);
+//     console.log(filteredPrompts);
 
-    response.render("innovation", {
-      subcategories: filteredData,
-      prompts: filteredPrompts,
-    });
-  } catch (error) {
-    console.error("Er was een probleem met het ophalen van gegevens:", error);
-    response
-      .status(500)
-      .send("Er is een fout opgetreden bij het ophalen van gegevens.");
-  }
-});
+//     response.render("innovation", {
+//       subcategories: filteredData,
+//       prompts: filteredPrompts,
+//     });
+//   } catch (error) {
+//     console.error("Er was een probleem met het ophalen van gegevens:", error);
+//     response
+//       .status(500)
+//       .send("Er is een fout opgetreden bij het ophalen van gegevens.");
+//   }
+// });
 
-app.get("/consulting", async function (request, response) {
-  try {
-    const items = await fetchJson(apiUrl + "subcategories");
-    const filteredData = items.data.filter((item) => {
-      return item.category == 3;
-    });
-    const promptsResponse = await fetchJson(apiUrl + "prompts");
+// app.get("/consulting", async function (request, response) {
+//   try {
+//     const items = await fetchJson(apiUrl + "subcategories");
+//     const filteredData = items.data.filter((item) => {
+//       return item.category == 3;
+//     });
+//     const promptsResponse = await fetchJson(apiUrl + "prompts");
 
-    const filteredPrompts = promptsResponse.data.filter((item) => {
-      return item.subcategorie == 2;
-    })
+//     const filteredPrompts = promptsResponse.data.filter((item) => {
+//       return item.subcategorie == 2;
+//     })
 
-    response.render("consulting", {
-      subcategories: filteredData,
-      prompts: filteredPrompts,
-    });
-  } catch (error) {
-    console.error("Er was een probleem met het ophalen van gegevens:", error);
-    response
-      .status(500)
-      .send("Er is een fout opgetreden bij het ophalen van gegevens.");
-  }
-});
+//     response.render("consulting", {
+//       subcategories: filteredData,
+//       prompts: filteredPrompts,
+//     });
+//   } catch (error) {
+//     console.error("Er was een probleem met het ophalen van gegevens:", error);
+//     response
+//       .status(500)
+//       .send("Er is een fout opgetreden bij het ophalen van gegevens.");
+//   }
+// });
 
-// // audit
+// audit
 // app.get("/audit/:id", function (request, response) {
 
 //   const categoryId = request.params.id;
@@ -203,8 +203,219 @@ app.get("/consulting", async function (request, response) {
 //   });
 // });
 
+// const deloitteFinancial = await fetchJson(apiUrl + 'items/deloitte_prompts?filter[id][_eq]=1')
+// const promptMessages = [];
+
+// // Route to financialReview.ejs
+// app.get('/financialReview',  async function(request, response){
+//   // binnen de financial review render geef ik de data van de url: https://fdnd-agency.directus.app/items/deloitte_prompts?filter[id][_eq]=1 
+//   // hier haal ik en weergeef ik de tekst door allPrompts te renderen in financialReview.ejs
+//   // promptMessages is de ingevoerde data in de form die ook word gerenderd in financialReview.ejs dit komt vanuit de lege array const promptMessages = [];
+//   response.render('financialReview', {
+//       prompts: deloitteFinancial.data,
+//       promptMessages: promptMessages 
+//   });
+// });
 
 
+// app.post("/audit", function (request, response){
+
+
+// }
+
+
+app.get("/audit/:id", async (request, response) => {
+  const categoryId = request.params.id;
+  console.log("categoryId: " + categoryId);
+  const fetchJson = (url) => fetch(url).then(response => response.json());
+
+
+  try {
+    // Fetch prompts and variables concurrently
+    const [promptsData, variablesData] = await Promise.all([
+      fetchJson(apiUrl + "prompts"),
+      fetchJson(apiUrl + "variables")
+    ]);
+
+
+    // Filter prompts by category
+    const prompts = promptsData.data.filter(item => item.subcategorie == categoryId);
+    if (prompts.length === 0) {
+      return response.render("audit", { prompts: [], variables: [] });
+    }
+
+
+    // Map variable IDs to their details
+    const variableMap = variablesData.data.reduce((map, variable) => {
+      map[variable.id] = { label: variable.label, type: variable.type };
+      return map;
+    }, {});
+
+
+    // Replace placeholders in prompts with input fields
+    const formattedPrompts = prompts.map(prompt => {
+      let formattedText = prompt.text;
+      prompt.variables.forEach(variableId => {
+        const variable = variableMap[variableId];
+        let inputField;
+        switch (variable.type) {
+          case 'FILE':
+            inputField = `<input type="file" name="${variable.label}" />`;
+            break;
+          case 'DATETIME_LOCAL':
+            inputField = `<input type="datetime-local" name="${variable.label}" />`;
+            break;
+          case 'TEXT':
+            inputField = `<input type="text" name="${variable.label}" placeholder="Enter ${variable.label}" />`;
+            break;
+          default:
+            inputField = `<input type="text" name="${variable.label}" />`;
+        }
+        const placeholder = new RegExp(`{{\\s*${variable.label}\\s*}}`, 'g');
+        formattedText = formattedText.replace(placeholder, inputField);
+      });
+      return { ...prompt, text: formattedText };
+    });
+
+
+    response.render("audit", {
+      prompts: formattedPrompts,
+      variables: variablesData.data,
+    });
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    response.status(500).send("Internal Server Error");
+  }
+});
+
+app.get("/innovation/:id", async (request, response) => {
+  const categoryId = request.params.id;
+  console.log("categoryId: " + categoryId);
+  const fetchJson = (url) => fetch(url).then(response => response.json());
+
+
+  try {
+    // Fetch prompts and variables concurrently
+    const [promptsData, variablesData] = await Promise.all([
+      fetchJson(apiUrl + "prompts"),
+      fetchJson(apiUrl + "variables")
+    ]);
+
+
+    // Filter prompts by category
+    const prompts = promptsData.data.filter(item => item.subcategorie == categoryId);
+    if (prompts.length === 0) {
+      return response.render("innovation", { prompts: [], variables: [] });
+    }
+
+
+    // Map variable IDs to their details
+    const variableMap = variablesData.data.reduce((map, variable) => {
+      map[variable.id] = { label: variable.label, type: variable.type };
+      return map;
+    }, {});
+
+
+    // Replace placeholders in prompts with input fields
+    const formattedPrompts = prompts.map(prompt => {
+      let formattedText = prompt.text;
+      prompt.variables.forEach(variableId => {
+        const variable = variableMap[variableId];
+        let inputField;
+        switch (variable.type) {
+          case 'FILE':
+            inputField = `<input type="file" name="${variable.label}" />`;
+            break;
+          case 'DATETIME_LOCAL':
+            inputField = `<input type="datetime-local" name="${variable.label}" />`;
+            break;
+          case 'TEXT':
+            inputField = `<input type="text" name="${variable.label}" placeholder="Enter ${variable.label}" />`;
+            break;
+          default:
+            inputField = `<input type="text" name="${variable.label}" />`;
+        }
+        const placeholder = new RegExp(`{{\\s*${variable.label}\\s*}}`, 'g');
+        formattedText = formattedText.replace(placeholder, inputField);
+      });
+      return { ...prompt, text: formattedText };
+    });
+
+
+    response.render("innovation", {
+      prompts: formattedPrompts,
+      variables: variablesData.data,
+    });
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    response.status(500).send("Internal Server Error");
+  }
+});
+
+
+app.get("/consulting/:id", async (request, response) => {
+  const categoryId = request.params.id;
+  console.log("categoryId: " + categoryId);
+  const fetchJson = (url) => fetch(url).then(response => response.json());
+
+
+  try {
+    // Fetch prompts and variables concurrently
+    const [promptsData, variablesData] = await Promise.all([
+      fetchJson(apiUrl + "prompts"),
+      fetchJson(apiUrl + "variables")
+    ]);
+
+
+    // Filter prompts by category
+    const prompts = promptsData.data.filter(item => item.subcategorie == categoryId);
+    if (prompts.length === 0) {
+      return response.render("consulting", { prompts: [], variables: [] });
+    }
+
+
+    // Map variable IDs to their details
+    const variableMap = variablesData.data.reduce((map, variable) => {
+      map[variable.id] = { label: variable.label, type: variable.type };
+      return map;
+    }, {});
+
+
+    // Replace placeholders in prompts with input fields
+    const formattedPrompts = prompts.map(prompt => {
+      let formattedText = prompt.text;
+      prompt.variables.forEach(variableId => {
+        const variable = variableMap[variableId];
+        let inputField;
+        switch (variable.type) {
+          case 'FILE':
+            inputField = `<input type="file" name="${variable.label}" />`;
+            break;
+          case 'DATETIME_LOCAL':
+            inputField = `<input type="datetime-local" name="${variable.label}" />`;
+            break;
+          case 'TEXT':
+            inputField = `<input type="text" name="${variable.label}" placeholder="Enter ${variable.label}" />`;
+            break;
+          default:
+            inputField = `<input type="text" name="${variable.label}" />`;
+        }
+        const placeholder = new RegExp(`{{\\s*${variable.label}\\s*}}`, 'g');
+        formattedText = formattedText.replace(placeholder, inputField);
+      });
+      return { ...prompt, text: formattedText };
+    });
+
+
+    response.render("consulting", {
+      prompts: formattedPrompts,
+      variables: variablesData.data,
+    });
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    response.status(500).send("Internal Server Error");
+  }
+});
 
 // audit
 // app.get("/audit", function (request, response) {
