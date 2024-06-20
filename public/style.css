@@ -232,9 +232,10 @@ button.buttonChat {
   margin-top: 2em;
 }
 
-a .home {
+.home {
   margin-top: 5em;
-  margin-left: 3em;
+  margin-right: 14em;
+  margin-bottom: -2em;;
 }
 
 i.zoek-balk {
