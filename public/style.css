@@ -88,7 +88,8 @@ img.logoHeadstart {
 
 h2 {
   margin-top: 3.5em;
-  margin-right: 7.5em;
+  margin-right: 8.1em;
+  margin-bottom: 1em;
 }
 
 h3 {
@@ -234,7 +235,7 @@ button.buttonChat {
 
 .home {
   margin-top: 5em;
-  margin-right: 14em;
+  margin-right: 15em;
   margin-bottom: -2em;;
 }
 
@@ -270,16 +271,8 @@ i.zoek-balk {
   padding-left: 10px;
 }
 
-/* summary {
-  list-style: none;
-} */
-
 details {
   color: var(--lightolor-nav-text);
-  /* margin: 7em ; */
-  /* width: 200px;
-  height:  200px; */
-  /* background-color: var(--lightcolor-support); */
 }
 
 a.subcategorieLink {
@@ -340,7 +333,7 @@ p.prompt {
   width: 20em;
   margin-top: 1em;
   margin-bottom: 1em;
-  margin-left: 1em;
+  margin-right: 1em;
   color: var(--lightolor-nav-text);
   border-radius: 20px;
   padding: .3em .6em;
@@ -354,10 +347,21 @@ button.cancelButton {
   border: none;
   border-radius: 20px;
   padding: .3em .6em;
+  margin-right: 2em;
+}
+
+button.cancelButton:hover {
+  background-color: #ECECF3;
+  color: black;
+}
+
+button.cancelButton:focus {
+  background-color: #ECECF3;
+  color: black;
 }
 
 .submit-input:hover {
-  background-color: var(--darkcolor-accent)
+  background-color: #00444D;
 }
 
 form {

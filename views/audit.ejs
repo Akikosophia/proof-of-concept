@@ -25,7 +25,10 @@
 
     <main>
 
+
         <article class="audit">
+
+            <h1 class="headstart">Headstart | Deloitte</h1>
 
             <a href="/" class="home">home</a>
     
@@ -33,14 +36,14 @@
     
             <h2 class="titel"> Prompt</h1>
                         <form>
-                            <ul>
+                            <!-- <ul> -->
                                 <% prompts.forEach(prompt => { %>
-                                    <li>
+                                    <!-- <li> -->
                                         <h3 class="promptTitel"><%- prompt.label %></h3>
                                         <p class="prompt"><%- prompt.text %></p>
-                                    </li>
+                                    <!-- </li> -->
                                 <% }); %>
-                            </ul>
+                            <!-- </ul> -->
                         </form>
     
                         <input type="submit" class="submit-input" value="Start the prompt" />
