@@ -34,8 +34,17 @@ Hieronder staan de randvoorwaarden
 
 ## Screenshots
 
+### Mobile:
+
+![proof-of-concept-qzex onrender com_Audit_1](https://github.com/Akikosophia/proof-of-concept/assets/144008863/27941fd5-6fde-415a-bf85-5be48a189158)
+
+### Desktop:
+![proof-of-concept-qzex onrender com_ (2)](https://github.com/Akikosophia/proof-of-concept/assets/144008863/83696913-1db6-4759-8559-c4ea27d51bd2)
+
+
 ## Gebruik
-Userstory: 
+Userstory: de gebruiker wilt prompt kunnen invullen en versturen.
+
 <!-- Bij Gebruik staat de user story, hoe het werkt en wat je er mee kan. -->
 
 ## Kenmerken
