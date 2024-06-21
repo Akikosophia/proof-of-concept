@@ -6,22 +6,21 @@ De opdrachtgever is Robert Spier en werkt binnen het bedrijf Deloitte als creati
 
 ## Inhoudsopgave
 
-  * [Beschrijving](#beschrijving)
+  * [Opdrachtomschrijving](#beschrijving)
   * [Gebruik](#gebruik)
   * [Kenmerken](#kenmerken)
   * [Installatie](#installatie)
   * [Bronnen](#bronnen)
   * [Licentie](#licentie)
 
-## Beschrijving
-
-# Opdrachtomschrijving 
+## Opdrachtomschrijving 
 Deloitte ontwikkelt een chatbot/chatGPT met een prompt library. Deze tool biedt gebruikers de mogelijkheid om aan de hand van een tekst geselecteerde prompts in te vullen. Vervolgens kunnen deze prompts worden verstuurd, waarna de tool een resultaat of antwoord genereert.
 <!-- Bij Beschrijving staat kort beschreven wat voor project het is en wat je hebt gemaakt -->
 <!-- Voeg een mooie poster visual toe 📸 -->
 <!-- Voeg een link toe naar Github Pages 🌐-->
+Hieronder staan de randvoorwaarden
 
-# Randvoorwaarden
+## Randvoorwaarden
 * Categorieën en subcategorieën
 * De tekst die in de JSON kunnen weergeven
 * Kunnen posten naar de API van Deloitte
