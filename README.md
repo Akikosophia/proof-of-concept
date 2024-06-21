@@ -32,6 +32,8 @@ Hieronder staan de randvoorwaarden
 * Verder zelf een creatieve input erin kunnen steken
 * Toegankelijkheid
 
+## Screenshots
+
 ## Gebruik
 Userstory: 
 <!-- Bij Gebruik staat de user story, hoe het werkt en wat je er mee kan. -->
