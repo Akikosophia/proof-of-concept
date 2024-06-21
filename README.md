@@ -2,7 +2,10 @@
 
 # Deloitte headstart
 <!-- Geef je project een titel en schrijf in één zin wat het is -->
-De opdrachtgever is Robert Spier en werkt binnen het bedrijf Deloitte als creative technologist. Zij bieden diensten aan zoals Audit & Assurance, Consulting, Risk Advisory, Belastingadvies, Financieel Advies, Juridische Diensten en Analytics & Cognitive
+
+Deloitte ontwikkelt een chatbot/chatGPT (headstart) met een prompt library. Deze tool biedt gebruikers de mogelijkheid om aan de hand van een tekst geselecteerde prompts in te vullen. Vervolgens kunnen deze prompts worden verstuurd, waarna de tool een resultaat of antwoord genereert.
+
+De opdrachtgever is Robert Spier.
 
 ## Inhoudsopgave
 
@@ -14,10 +17,12 @@ De opdrachtgever is Robert Spier en werkt binnen het bedrijf Deloitte als creati
   * [Licentie](#licentie)
 
 ## Opdrachtomschrijving 
-Deloitte ontwikkelt een chatbot/chatGPT met een prompt library. Deze tool biedt gebruikers de mogelijkheid om aan de hand van een tekst geselecteerde prompts in te vullen. Vervolgens kunnen deze prompts worden verstuurd, waarna de tool een resultaat of antwoord genereert.
 <!-- Bij Beschrijving staat kort beschreven wat voor project het is en wat je hebt gemaakt -->
 <!-- Voeg een mooie poster visual toe 📸 -->
 <!-- Voeg een link toe naar Github Pages 🌐-->
+
+Headstart kunnen maken aan de hand van de huisstijl, prompt kunnen maken en versturen. Met de mogelijkheid als hier verder ruimte voor is dit verder uit te breiden en informatie terug te kunnen krijgen en dat kunnen weergeven aan de gebruiker.
+
 Hieronder staan de randvoorwaarden
 
 ## Randvoorwaarden
@@ -28,6 +33,7 @@ Hieronder staan de randvoorwaarden
 * Toegankelijkheid
 
 ## Gebruik
+Userstory: 
 <!-- Bij Gebruik staat de user story, hoe het werkt en wat je er mee kan. -->
 
 ## Kenmerken
